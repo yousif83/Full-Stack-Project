@@ -19,5 +19,18 @@ routes.delete('/cars/:id' , function(request,response){
     response.json("Car Deleted successfully")
   })
 })
+routes.post('/cars/' , function(request,response){
+  var body = request.body
+  queries.insertCar(body).then(function(data){
+    response.send("Car inserted successfully")
+  })
+})
+routes.put('/cars/:id' , function(request,response){
+  var body=request.body
+  var id = request.params.id
+  queries.updateCar(body,id).then(function(data){
+    response.json("Car updated successfully")
+  })
+})
 
 module.exports=routes

@@ -26,7 +26,7 @@ routes.post('/cars/' , function(request,response){
 
   if (body.condition.trim() === '' || body.color.trim() === ''  || body.price.trim() === ''  || isNaN(body.price) ||
       body.make_year.trim() === ''  || isNaN(body.make_year) || body.model.trim() === '' || body.options .trim() === '') {
-      response.send("fucking empty type something")
+      response.send("incorrect input")
   }
   else {
     queries.insertCar(body).then(function(data){
@@ -40,7 +40,7 @@ routes.put('/cars/:id' , function(request,response){
   var id = request.params.id
   if (body.condition.trim() === '' || body.color.trim() === ''  || body.price.trim() === ''  || isNaN(body.price) ||
       body.make_year.trim() === ''  || isNaN(body.make_year) || body.model.trim() === '' || body.options .trim() === '') {
-      response.send(" empty type something")
+      response.send("incorrect input")
   }
   else {
     queries.updateCar(body,id).then(function(data){
